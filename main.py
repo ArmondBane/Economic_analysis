@@ -18,6 +18,8 @@ class MainApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
             tables.export('export.csv', f='csv', compress=False)
             self.readFiles()
             self.deleteFiles()
+        else:
+            return
 
 
     def readFiles(self):

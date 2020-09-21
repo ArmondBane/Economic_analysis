@@ -23,17 +23,26 @@ class Ui_MainWindow(object):
         self.loadFileButton.setEnabled(True)
         self.loadFileButton.setGeometry(QtCore.QRect(230, 340, 151, 31))
         self.loadFileButton.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
+        self.loadFileButton.setStyleSheet("#loadFileButton{\n"
+"background-color:     #624AD8;\n"
+"border-radius: 8px;\n"
+"color: white;\n"
+"}\n"
+"\n"
+"#loadFileButton:hover{\n"
+"background-color:    #8170D8;\n"
+"}")
         self.loadFileButton.setObjectName("loadFileButton")
-        self.mainLabel = QtWidgets.QLabel(self.centralwidget)
-        self.mainLabel.setGeometry(QtCore.QRect(0, 0, 601, 41))
+        self.mainLabel_1 = QtWidgets.QLabel(self.centralwidget)
+        self.mainLabel_1.setGeometry(QtCore.QRect(0, 0, 601, 41))
         font = QtGui.QFont()
         font.setFamily("BankGothic Md BT")
         font.setPointSize(14)
-        self.mainLabel.setFont(font)
-        self.mainLabel.setScaledContents(False)
-        self.mainLabel.setAlignment(QtCore.Qt.AlignCenter)
-        self.mainLabel.setWordWrap(False)
-        self.mainLabel.setObjectName("mainLabel")
+        self.mainLabel_1.setFont(font)
+        self.mainLabel_1.setScaledContents(False)
+        self.mainLabel_1.setAlignment(QtCore.Qt.AlignCenter)
+        self.mainLabel_1.setWordWrap(False)
+        self.mainLabel_1.setObjectName("mainLabel_1")
         self.mainLabel_2 = QtWidgets.QLabel(self.centralwidget)
         self.mainLabel_2.setGeometry(QtCore.QRect(0, 40, 601, 41))
         font = QtGui.QFont()
@@ -54,6 +63,12 @@ class Ui_MainWindow(object):
         self.mainLabel_3.setAlignment(QtCore.Qt.AlignCenter)
         self.mainLabel_3.setWordWrap(False)
         self.mainLabel_3.setObjectName("mainLabel_3")
+        self.mainImage = QtWidgets.QLabel(self.centralwidget)
+        self.mainImage.setGeometry(QtCore.QRect(210, 90, 200, 200))
+        self.mainImage.setText("")
+        self.mainImage.setPixmap(QtGui.QPixmap("C:\\Users\\User\\Documents\\Python\\EconomicalAnaliz\\img/hotpng.com.png"))
+        self.mainImage.setScaledContents(True)
+        self.mainImage.setObjectName("mainImage")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -63,6 +78,6 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Экономический анализ"))
         self.loadFileButton.setText(_translate("MainWindow", "Загрузить файл"))
-        self.mainLabel.setText(_translate("MainWindow", "Добро пожаловать в программу"))
-        self.mainLabel_2.setText(_translate("MainWindow", "Применение машинного обучения в экономическом анализе"))
+        self.mainLabel_1.setText(_translate("MainWindow", "Добро пожаловать в программу"))
+        self.mainLabel_2.setText(_translate("MainWindow", "Экономического анализа"))
         self.mainLabel_3.setText(_translate("MainWindow", "Чтобы начать - загрузите файл PDF вашей экономической отчетности"))
