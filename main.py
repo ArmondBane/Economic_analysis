@@ -5,6 +5,7 @@ import camelot
 from PyQt5 import QtWidgets
 import design
 
+
 class MainApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
     def __init__(self):
         super().__init__()
@@ -13,14 +14,13 @@ class MainApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
 
     def browse_folder(self):
         directory = QtWidgets.QFileDialog.getOpenFileName(self, "Выберите папку")
-        if directory:
+        if directory[0]:
             tables = camelot.read_pdf(directory[0], pages='1,2,3,4')
             tables.export('export.csv', f='csv', compress=False)
             self.readFiles()
             self.deleteFiles()
-        else:
-            return
-
+            design.Ui_MainWindow.alert(self, "files ready")
+            design.Ui_MainWindow.openWindow_checkOutWind(self)
 
     def readFiles(self):
         with open('export-page-1-table-2.csv', encoding='utf-8') as f:
@@ -54,7 +54,6 @@ class MainApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
         os.remove('export-page-4-table-1.csv')
         os.remove('export-page-1-table-1.csv')
         os.remove('export-page-3-table-1.csv')
-
 
 def main():
     app = QtWidgets.QApplication(sys.argv)  # Новый экземпляр QApplication

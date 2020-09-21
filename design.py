@@ -9,9 +9,17 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from PyQt5.QtWidgets import QMessageBox
+from confirmWindow import Ui_CheckOutWindow
 
 class Ui_MainWindow(object):
+
+    def openWindow_checkOutWind(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_CheckOutWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(600, 400)
@@ -24,14 +32,14 @@ class Ui_MainWindow(object):
         self.loadFileButton.setGeometry(QtCore.QRect(230, 340, 151, 31))
         self.loadFileButton.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
         self.loadFileButton.setStyleSheet("#loadFileButton{\n"
-"background-color:     #624AD8;\n"
-"border-radius: 8px;\n"
-"color: white;\n"
-"}\n"
-"\n"
-"#loadFileButton:hover{\n"
-"background-color:    #8170D8;\n"
-"}")
+                                            "background-color:     #624AD8;\n"
+                                            "border-radius: 8px;\n"
+                                            "color: white;\n"
+                                            "}\n"
+                                            "\n"
+                                            "#loadFileButton:hover{\n"
+                                            "background-color:    #8170D8;\n"
+                                            "}")
         self.loadFileButton.setObjectName("loadFileButton")
         self.mainLabel_1 = QtWidgets.QLabel(self.centralwidget)
         self.mainLabel_1.setGeometry(QtCore.QRect(0, 0, 601, 41))
@@ -66,13 +74,20 @@ class Ui_MainWindow(object):
         self.mainImage = QtWidgets.QLabel(self.centralwidget)
         self.mainImage.setGeometry(QtCore.QRect(210, 90, 200, 200))
         self.mainImage.setText("")
-        self.mainImage.setPixmap(QtGui.QPixmap("C:\\Users\\User\\Documents\\Python\\EconomicalAnaliz\\img/hotpng.com.png"))
+        self.mainImage.setPixmap(QtGui.QPixmap("img/hotpng.com.png"))
         self.mainImage.setScaledContents(True)
         self.mainImage.setObjectName("mainImage")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def alert(self, text):
+        msg = QMessageBox()
+        msg.setWindowTitle("Alert!")
+        msg.setText(text)
+
+        msg.exec_()
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
